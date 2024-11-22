@@ -12,9 +12,8 @@ public class ComicService {
 
     private List<Comic> comicList;
 
-
     public ComicService(){
-        List<Comic> comicList = new ArrayList<>();
+        this.comicList = new ArrayList<>();
         comicList.add(new Comic(1, "The Adventures of AI", "Sci-Fi", "John Doe", "https://example.com/comic1.jpg", "2024-11-19", 4.5));
         comicList.add(new Comic(2, "Mysteries of the Universe", "Mystery", "Jane Smith", "https://example.com/comic2.jpg", "2023-08-12", 4.0));
         comicList.add(new Comic(3, "Heroic Tales", "Action", "Alice Johnson", "https://example.com/comic3.jpg", "2022-05-23", 4.8));
@@ -24,11 +23,10 @@ public class ComicService {
 
     public Optional<Comic> getComic(Integer id) {
 
-        Optional optional = Optional.empty();
+        Optional<Comic> optional = Optional.empty();
 
-        for(Comic comic : comicList)
-        {
-            if(id == comic.getId()){
+        for(Comic comic : comicList) {
+            if(id.equals(comic.getId())){
                 optional = Optional.of(comic);
                 return optional;
             }

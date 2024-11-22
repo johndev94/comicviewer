@@ -19,9 +19,12 @@ public class ComicController {
         this.comicService = comicService;
     }
 
-    @GetMapping("/user")
+    @GetMapping("/comic")
     public Comic getComic(@RequestParam Integer id){
         Optional<Comic> comic = comicService.getComic(id);
-        return (Comic) comic.orElse(null);
+        if(comic.isPresent()){
+            return(Comic) comic.get();
+        }
+        return null;
     }
 }
