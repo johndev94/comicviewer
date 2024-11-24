@@ -32,10 +32,10 @@
       <ul class="list-group">
         <li class="list-group-item" th:each="comic : ${comics}">
           <h2 th:text="${comic.title}">Comic Title</h2>
+          <img th:src="${comic.image}" alt="Comic Cover" class="img-fluid" width="200px">
           <p>Author: <span th:text="${comic.author}"></span></p>
           <p>Genre: <span th:text="${comic.genre}"></span></p>
           <p>Rating: <span th:text="${comic.rating}"></span></p>
-          <img th:src="${comic.image}" alt="Comic Cover" class="img-fluid">
         </li>
       </ul>
     </div>
