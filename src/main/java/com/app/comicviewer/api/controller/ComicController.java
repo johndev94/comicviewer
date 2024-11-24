@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/comics")
@@ -21,6 +22,14 @@ public class ComicController {
     @GetMapping
     public String getComicsPage(Model model) {
         model.addAttribute("comics", comicService.findAll());
-        return "comics"; // Name of the Thymeleaf template
+        model.addAttribute("genres", comicService.findAllGenres());
+        return "comics";
+    }
+
+    @GetMapping("/search")
+    public String searchComics(@RequestParam("query") String query, Model model) {
+        model.addAttribute("comics", comicService.searchComicsByTitle(query));
+        model.addAttribute("genres", comicService.findAllGenres());
+        return "comics";
     }
 }

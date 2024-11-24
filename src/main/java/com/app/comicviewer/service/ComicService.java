@@ -29,4 +29,13 @@ public class ComicService {
     public Comic saveComic(Comic comic) {
         return comicRepository.save(comic);
     }
+
+    public List<Comic> searchComicsByTitle(String query)
+    {
+        return comicRepository.searchComicsByTitle(query);
+    }
+
+    public List<String> findAllGenres() {
+        return comicRepository.findAllGenres();
+    }
 }
