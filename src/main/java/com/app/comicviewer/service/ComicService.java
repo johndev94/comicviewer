@@ -1,6 +1,7 @@
 package com.app.comicviewer.service;
 
 import com.app.comicviewer.api.model.Comic;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -32,5 +33,9 @@ public class ComicService {
             }
         }
         return optional;
+    }
+    public List<Comic> findAll() {
+        return new ArrayList<>(comicList);
+
     }
 }
