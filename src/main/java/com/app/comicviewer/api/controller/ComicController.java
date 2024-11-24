@@ -32,4 +32,11 @@ public class ComicController {
         model.addAttribute("genres", comicService.findAllGenres());
         return "comics";
     }
-}
+
+    @GetMapping("/genre")
+    public String filterComicsByGenre(@RequestParam("genre") String genre, Model model) {
+        model.addAttribute("comics", comicService.findComicsByGenre(genre));
+        model.addAttribute("genres", comicService.findAllGenres());
+        return "comics";
+    }
+    }

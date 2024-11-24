@@ -38,4 +38,8 @@ public class ComicService {
     public List<String> findAllGenres() {
         return comicRepository.findAllGenres();
     }
+
+    public List<Comic> findComicsByGenre(String genre){
+        return comicRepository.filterByGenre(genre);
+    }
 }
