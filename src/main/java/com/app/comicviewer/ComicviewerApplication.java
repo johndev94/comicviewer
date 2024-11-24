@@ -10,4 +10,5 @@ public class ComicviewerApplication {
 		SpringApplication.run(ComicviewerApplication.class, args);
 	}
 
+
 }
